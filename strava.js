@@ -2,7 +2,7 @@ const auth_link = "https://www.strava.com/oauth/token"
 
 function getActivites(res){
 
-    const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}`
+    const activities_link = 'https://www.strava.com/api/v3/athlete/activities?access_token='730642914c1c934c3d788f4884bae361a615f215''--${res.access_token}'
     fetch(activities_link)
         .then((res) => console.log(res.json()))
 }
