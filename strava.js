@@ -18,9 +18,9 @@ function reAuthorize(){
 
         body: JSON.stringify({
 
-            client_id: '58448',
-            client_secret: '424db41c1cb7e8718fbbcf17192e7bb0e3fe5a91',
-            refresh_token: 'ea9f23435419a1c02159a8fb8cba8377c87c8c3e',
+            client_id: '58267',
+            client_secret: '569b597f7ef7e0717a0478b7e939f86dc4ce0ee7',
+            refresh_token: '94cbbccf6d1ad96a4392f3a0d943a093b245526e',
             grant_type: 'refresh_token'
         })
     })
