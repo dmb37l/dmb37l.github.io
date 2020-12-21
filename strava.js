@@ -20,7 +20,7 @@ function reAuthorize(){
 
             client_id: '58267',
             client_secret: '569b597f7ef7e0717a0478b7e939f86dc4ce0ee7',
-            refresh_token: '94cbbccf6d1ad96a4392f3a0d943a093b245526e',
+            refresh_token: '219b348a7c6dc79405dbe8a95e894f71d5892cad',
             grant_type: 'refresh_token'
         })
     }).then(res => res.json())
