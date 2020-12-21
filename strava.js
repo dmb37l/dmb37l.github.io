@@ -2,7 +2,7 @@ const auth_link = "https://www.strava.com/oauth/token"
 
 function getActivites(res){
 
-    const activities_link = `https://www.strava.com/api/v3/athlete/activities?per_page=200?access_token=${res.refresh_token}`
+    const activities_link = `https://www.strava.com/api/v3/athlete/activities?per_page=200?access_token=${res}`
     fetch(activities_link)
         .then((res) => console.log(res.json()))
 }
@@ -24,7 +24,7 @@ function reAuthorize(){
             grant_type: 'refresh_token'
         })
     })
-    .then(res => getActivites(res))
+    .then(res.access_token => getActivites(res))
       
 }
 
