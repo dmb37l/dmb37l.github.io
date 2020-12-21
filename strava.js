@@ -23,7 +23,7 @@ function reAuthorize(){
             refresh_token: '94cbbccf6d1ad96a4392f3a0d943a093b245526e',
             grant_type: 'refresh_token'
         })
-    })
+    }).then(res => res.json())
     .then(res => getActivites(res))
       
 }
