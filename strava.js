@@ -24,7 +24,7 @@ function reAuthorize(){
             grant_type: 'refresh_token'
         })
     })
-    .then(res.access_token => getActivites(res.access_token))
+    .then(res => getActivites(res))
       
 }
 
