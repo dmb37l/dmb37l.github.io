@@ -31,7 +31,7 @@ function reAuthorize(){
             grant_type: 'refresh_token'
         })
     }).then(res => res.json())
-    .then(res => getActivites(res)
+    .then(//res => getActivites(res)
 	  res => getClubActivites(res))
       
 }
