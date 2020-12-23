@@ -7,13 +7,6 @@ function getActivites(res){
         .then((res) => console.log(res.json()))
 }
 
-function getClubActivites(res){
-
-    const activities_link = `https://www.strava.com/api/v3/clubs/471709/activities?per_page=200?access_token=${res.access_token}`
-    fetch(activities_link)
-        .then((res) => console.log(res.json()))
-}
-
 function reAuthorize(){
     fetch(auth_link,{
         method: 'post',
