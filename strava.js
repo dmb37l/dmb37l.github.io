@@ -9,7 +9,7 @@ function getActivites(res){
 
 function getClubActivites(res){
 
-    const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}&page=1&per_page=200&before=2020-10-28T07:28:01Z`
+    const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}&page=1&per_page=200&before=1603006081`
     fetch(activities_link)
         .then((res) => console.log(res.json()));
 }
