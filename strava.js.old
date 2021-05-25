@@ -1,18 +1,17 @@
 const auth_link = "https://www.strava.com/oauth/token"
 
 function getActivites(res){
-    const secs = Math.floor(Date.now()/1000);
-    const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}&page=1&per_page=5&before=${secs}`
+
+    const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}&per_page=200`
+    fetch(activities_link)
+        .then((res) => console.log(res.json()))
+}
+
+function getClubActivites(res){
+
+    const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}&page=1&per_page=200&after=1615982580`
     fetch(activities_link)
         .then((res) => console.log(res.json()));
-		const jsonString = JSON.stringify(res)
-		fs.writeFile('./activities.json', jsonString, err => {
-		if (err) {
-			console.log('Error writing file', err)
-			} else {
-			console.log('Successfully wrote file')
-			}
-				})
 }
 function reAuthorize(){
     fetch(auth_link,{
@@ -31,8 +30,8 @@ function reAuthorize(){
             grant_type: 'refresh_token'
         })
     }).then(res => res.json())
-    .then(
-	  res => getActivites(res))
+    .then(//res => getActivites(res))
+	  res => getClubActivites(res))
       
 }
 
