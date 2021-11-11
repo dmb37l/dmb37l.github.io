@@ -1,0 +1,219 @@
+[
+	{
+		"id": 2820264257811959300,
+		"resource_state": 2,
+		"name": "CYCROWlation - Stage 1",
+		"activity": {
+			"id": 5171219199,
+			"resource_state": 1
+		},
+		"athlete": {
+			"id": 10314475,
+			"resource_state": 1
+		},
+		"elapsed_time": 4559,
+		"moving_time": 4559,
+		"start_date": "2021-04-22T09:08:21Z",
+		"start_date_local": "2021-04-22T10:08:21Z",
+		"distance": 42440.2,
+		"start_index": 857,
+		"end_index": 5416,
+		"average_cadence": 73.4,
+		"device_watts": true,
+		"average_watts": 257,
+		"average_heartrate": 167.6,
+		"max_heartrate": 187,
+		"segment": {
+			"id": 23378403,
+			"resource_state": 2,
+			"name": "CYCROWlation - Stage 1",
+			"activity_type": "Ride",
+			"distance": 42440.2,
+			"average_grade": 0,
+			"maximum_grade": 12.7,
+			"elevation_high": 224.4,
+			"elevation_low": 129.8,
+			"start_latlng": [
+				52.895769,
+				-1.093134
+			],
+			"end_latlng": [
+				52.90418,
+				-1.068047
+			],
+			"elevation_profile": null,
+			"start_latitude": 52.895769,
+			"start_longitude": -1.093134,
+			"end_latitude": 52.90418,
+			"end_longitude": -1.068047,
+			"climb_category": 0,
+			"city": "Nottingham",
+			"state": "England",
+			"country": "United Kingdom",
+			"private": false,
+			"hazardous": false,
+			"starred": true
+		},
+		"pr_rank": null,
+		"achievements": [
+			{
+				"type_id": 2,
+				"type": "overall",
+				"rank": 4
+			},
+			{
+				"type_id": 7,
+				"type": "segment_effort_count_leader",
+				"rank": 1,
+				"effort_count": 2
+			}
+		],
+		"kom_rank": 4
+	},
+	{
+		"id": 2684143821870486500,
+		"resource_state": 2,
+		"name": "CYCROWlation - Stage 1",
+		"activity": {
+			"id": 3288437642,
+			"resource_state": 1
+		},
+		"athlete": {
+			"id": 10314475,
+			"resource_state": 1
+		},
+		"elapsed_time": 4607,
+		"moving_time": 4607,
+		"start_date": "2020-04-12T09:36:55Z",
+		"start_date_local": "2020-04-12T10:36:55Z",
+		"distance": 42440.2,
+		"start_index": 843,
+		"end_index": 5450,
+		"device_watts": false,
+		"average_watts": 203.5,
+		"average_heartrate": 166.1,
+		"max_heartrate": 181,
+		"segment": {
+			"id": 23378403,
+			"resource_state": 2,
+			"name": "CYCROWlation - Stage 1",
+			"activity_type": "Ride",
+			"distance": 42440.2,
+			"average_grade": 0,
+			"maximum_grade": 12.7,
+			"elevation_high": 224.4,
+			"elevation_low": 129.8,
+			"start_latlng": [
+				52.895769,
+				-1.093134
+			],
+			"end_latlng": [
+				52.90418,
+				-1.068047
+			],
+			"elevation_profile": null,
+			"start_latitude": 52.895769,
+			"start_longitude": -1.093134,
+			"end_latitude": 52.90418,
+			"end_longitude": -1.068047,
+			"climb_category": 0,
+			"city": "Nottingham",
+			"state": "England",
+			"country": "United Kingdom",
+			"private": false,
+			"hazardous": false,
+			"starred": true
+		},
+		"pr_rank": null,
+		"achievements": [
+			{
+				"type_id": 2,
+				"type": "overall",
+				"rank": 5
+			},
+			{
+				"type_id": 2,
+				"type": "overall",
+				"rank": 5
+			},
+			{
+				"type_id": 7,
+				"type": "segment_effort_count_leader",
+				"rank": 1,
+				"effort_count": 2
+			}
+		],
+		"kom_rank": 5
+	},
+	{
+		"id": 2819566279210375700,
+		"resource_state": 2,
+		"name": "CYCROWlation - Stage 1",
+		"activity": {
+			"id": 5159883892,
+			"resource_state": 1
+		},
+		"athlete": {
+			"id": 10314475,
+			"resource_state": 1
+		},
+		"elapsed_time": 4807,
+		"moving_time": 4806,
+		"start_date": "2021-04-20T10:53:30Z",
+		"start_date_local": "2021-04-20T11:53:30Z",
+		"distance": 42440.2,
+		"start_index": 845,
+		"end_index": 5652,
+		"average_cadence": 66.3,
+		"device_watts": true,
+		"average_watts": 229.5,
+		"average_heartrate": 155.7,
+		"max_heartrate": 183,
+		"segment": {
+			"id": 23378403,
+			"resource_state": 2,
+			"name": "CYCROWlation - Stage 1",
+			"activity_type": "Ride",
+			"distance": 42440.2,
+			"average_grade": 0,
+			"maximum_grade": 12.7,
+			"elevation_high": 224.4,
+			"elevation_low": 129.8,
+			"start_latlng": [
+				52.895769,
+				-1.093134
+			],
+			"end_latlng": [
+				52.90418,
+				-1.068047
+			],
+			"elevation_profile": null,
+			"start_latitude": 52.895769,
+			"start_longitude": -1.093134,
+			"end_latitude": 52.90418,
+			"end_longitude": -1.068047,
+			"climb_category": 0,
+			"city": "Nottingham",
+			"state": "England",
+			"country": "United Kingdom",
+			"private": false,
+			"hazardous": false,
+			"starred": true
+		},
+		"pr_rank": 2,
+		"achievements": [
+			{
+				"type_id": 3,
+				"type": "pr",
+				"rank": 2
+			},
+			{
+				"type_id": 7,
+				"type": "segment_effort_count_leader",
+				"rank": 1,
+				"effort_count": 2
+			}
+		],
+		"kom_rank": null
+	}
+]
