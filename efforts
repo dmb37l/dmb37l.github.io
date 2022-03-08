@@ -1,0 +1,6 @@
+SELECT *
+FROM public.segment_efforts
+where segment_name like '%Stage X%'
+and device_watts ='true'
+order by start_date_local desc
+

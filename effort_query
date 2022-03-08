@@ -1,0 +1,24 @@
+sELECT segment_name
+,	   ROUND((distance/1000*0.621371), 2) distance
+,	   round(avg(elapsed_time))* interval '1 sec' average_time
+,	   min(moving_time* interval '1 sec') min__moving_time
+,	   min(elapsed_time* interval '1 sec') min_elapsed_time
+,	   max(elapsed_time* interval '1 sec') max_time
+,      max(ROUND((distance/1000*0.621371)*3600/elapsed_time, 2)) max_speed_elapsed
+,      max(ROUND((distance/1000*0.621371)*3600/moving_time, 2)) max_speed_moving
+,      avg(average_grade)
+,      max(case when device_watts ='true' 
+		   then average_watts 
+		   else 0 end) Max_watts
+,	   count(1)
+FROM public.segment_efforts
+
+where distance > 5000
+and (upper(segment_name) like '%CYCROW%' 
+	 or upper(segment_name) like '%STAGE%'
+	 or upper(segment_name) like '%POWER%') 
+group by segment_name
+,	   ROUND((distance/1000*0.621371), 2)
+--having count(1) > 5
+ORDER BY 7 DESC
+

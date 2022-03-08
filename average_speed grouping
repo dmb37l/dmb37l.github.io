@@ -1,0 +1,42 @@
+select -- a.id
+--, 	a.name
+--,	start_date_local
+    EXTRACT(YEAR FROM start_date_local) as year
+,   g.name
+,	a.type
+,	sum(ROUND((distance/1000*0.621371), 2)) distance
+,   round(sum(distance/1000*0.621371)/ (sum(cast(moving_time as decimal))/3600), 2) average_speed
+--,   sum(cast(moving_time as decimal))/3600
+--,	ROUND(avg(average_speed/1000*0.621371* 3600), 2) averaged_average_speed
+,	max(ROUND((max_speed/1000*0.621371* 3600), 2)) max_speed
+,	sum(total_elevation_gain) total_elevation_gain
+,	round(sum(total_elevation_gain)/sum(distance/1000*0.621371), 2) metres_per_mile
+--,	round(avg(average_heartrate)) average_HR
+,   round(sum(average_heartrate*cast(moving_time as decimal))/ sum(cast(moving_time as decimal))) average_hr
+,	Max(max_heartrate) Max_HR
+,	sum(moving_time * interval '1 sec') moving_time
+,	sum(elapsed_time * interval '1 sec') elapsed_time
+from activities a
+left outer join  gear g
+on  a.gear_id = g.gear_id
+where a.type = 'Ride'
+--and EXTRACT(YEAR FROM start_date_local) = 2021
+group by year, a.type, g.name
+order by 2,1
+
+--where start_date_local between '2016-04-17' and '2016-10-17'
+--where weighted_average_watts > 0
+--and device_watts = 'true'
+--order by-- case when device_watts ='true' then weighted_average_watts else 0 end  desc 
+--start_date_local desc
+
+
+/*select sum (ROUND((distance/1000*0.621371), 2)) distance
+from activities a
+left outer join  gear g
+on  a.gear_id = g.gear_id
+--where start_date_local between '2016-04-17' and '2016-10-17'
+--where weighted_average_watts > 0
+--and device_watts = 'true'
+where a.type = 'Ride' 
+and start_date_local > '2021-01-01'*/

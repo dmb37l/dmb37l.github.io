@@ -1,0 +1,32 @@
+sELECT segment_name
+,      start_date_local
+,	   ROUND((distance/1000*0.621371), 2) distance
+,	   elapsed_time * interval '1 sec' time
+,	   moving_time* interval '1 sec' moving_time
+--,	   min(elapsed_time* interval '1 sec') min_elapsed_time
+--,	   max(elapsed_time* interval '1 sec') max_time
+,      ROUND((distance/1000*0.621371)*3600/elapsed_time, 2)speed_elapsed
+,      ROUND((distance/1000*0.621371)*3600/moving_time, 2)speed_moving
+,	   average_heartrate
+,      max_heartrate
+,      case when device_watts ='true' 
+		   then average_watts 
+		   else 0 end watts
+,      case when device_watts ='true' 
+		   then average_watts/(average_heartrate -60)
+		   else 0 end watts_per_beat
+FROM public.segment_efforts
+where distance > 5000
+/*and (upper(segment_name) like '%CYCROW%' 
+	 or upper(segment_name) like '%STAGE%'
+	 or upper(segment_name) like '%POWER%') */
+and device_watts = 'true'
+and average_heartrate > 0
+--having count(1) > 5
+ORDER BY 2,1 DESC
+
+/*SELECT *
+FROM public.segment_efforts
+where segment_name like '%Stage X%'
+and device_watts ='true'
+order by start_date_local desc */

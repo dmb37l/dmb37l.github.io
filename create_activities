@@ -1,0 +1,51 @@
+-- Table: public.activities
+
+-- DROP TABLE public.activities;
+
+CREATE TABLE IF NOT EXISTS public.activities
+(
+    id bigint NOT NULL,
+    name character varying(500) COLLATE pg_catalog."default",
+    distance numeric,
+    moving_time integer,
+    elapsed_time integer,
+    total_elevation_gain integer,
+    type character varying(30) COLLATE pg_catalog."default",
+    start_date_local timestamp without time zone,
+    timezone character varying(50) COLLATE pg_catalog."default",
+    location_country character varying(50) COLLATE pg_catalog."default",
+    start_latitude numeric,
+    start_longitude numeric,
+    achievement_count integer,
+    trainer character varying(10) COLLATE pg_catalog."default",
+    commute character varying(10) COLLATE pg_catalog."default",
+    manual character varying(10) COLLATE pg_catalog."default",
+    private character varying(10) COLLATE pg_catalog."default",
+    visibility character varying(20) COLLATE pg_catalog."default",
+    gear_id character varying(20) COLLATE pg_catalog."default",
+    upload_id_str bigint,
+    average_speed numeric,
+    max_speed numeric,
+    average_cadence integer,
+    average_temp integer,
+    average_watts numeric,
+    weighted_average_watts numeric,
+    kilojoules numeric,
+    device_watts character varying(10) COLLATE pg_catalog."default",
+    has_heartrate character varying(10) COLLATE pg_catalog."default",
+    average_heartrate numeric,
+    max_heartrate integer,
+    heartrate_opt_out character varying(10) COLLATE pg_catalog."default",
+    max_watts integer,
+    elev_high numeric,
+    elev_low numeric,
+    pr_count integer,
+    has_kudoed character varying(10) COLLATE pg_catalog."default",
+    suffer_score integer,
+    CONSTRAINT activities_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.activities
+    OWNER to ugdkavve;

@@ -1,0 +1,27 @@
+drop table gear
+
+CREATE TABLE IF NOT EXISTS public.gear
+(    
+    gear_id character varying(20) PRIMARY KEY,
+	name character varying(50),
+	type character varying (20) default 'Bike'
+);
+
+
+
+insert into gear (type, gear_id, name) values('Bike', 'b6795450', 'XLS');
+insert into gear (type, gear_id, name) values('Bike', 'b2297643', 'Kaffenback');
+insert into gear (type, gear_id, name) values('Bike', 'b2297611', 'Old Boardman');
+insert into gear (type, gear_id, name) values('Bike', 'b2304662', 'Chameleon');
+insert into gear (type, gear_id, name) values('Bike', 'b2304663', 'Old Boardman');
+insert into gear (type, gear_id, name) values('Bike', 'b2304665', 'Kona');
+insert into gear (type, gear_id, name) values('Bike', 'b2304668', 'Inbred');
+insert into gear (type, gear_id, name) values('Bike', 'b2304677', 'Tandem');
+insert into gear (type, gear_id, name) values('Bike', 'b3920596', 'Boardman Pro');
+insert into gear (type, gear_id, name) values('Bike', 'b4039989', 'Canyon');
+insert into gear (type, gear_id, name) values('Bike', 'b2304667', 'Condor');
+insert into gear (type, gear_id, name) values('Bike', 'b2329478', 'Brompton');
+
+select * from gear
+
+truncate table gear

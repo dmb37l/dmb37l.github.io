@@ -1,0 +1,23 @@
+/*select EXTRACT(YEAR FROM start_date_local) as year
+, type
+, count(1) activities
+, sum(ROUND((distance/1000*0.621371), 2)) distance
+from activities
+where EXTRACT(YEAR FROM start_date_local) = 2021
+group by type, year
+order by year*/
+
+
+/*select date(start_date_local) as day
+, type
+, count(1) activities
+, sum(ROUND((distance/1000*0.621371), 2)) distance
+from activities
+where EXTRACT(YEAR FROM start_date_local) = 2021
+and type = 'Ride'
+group by type, day
+having sum(ROUND((distance/1000*0.621371), 2)) >= 60
+order by day*/
+
+SELECT to_char(dates, 'DD-MON-YYYY') Date FROM generate_series('2021-01-01', '2021-12-31', interval '1 day') AS dates
+  WHERE dates NOT IN (SELECT date(start_date_local) FROM activities)-- where type = 'Ride')

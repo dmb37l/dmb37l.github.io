@@ -1,0 +1,37 @@
+-- Table: public.segment_efforts
+
+-- DROP TABLE segment_efforts;
+
+CREATE TABLE IF NOT EXISTS public.segment_efforts
+(
+    effort_id bigint NOT NULL PRIMARY KEY,
+	segment_id bigint NOT NULL,
+    segment_name character varying(500) COLLATE pg_catalog."default",
+	activity_id bigint NOT NULL,
+	athlete_id bigint NOT NULL,
+    distance numeric,
+    moving_time integer,
+    elapsed_time integer,
+    start_date_local timestamp without time zone,
+    start_index numeric,
+	end_index numeric,
+    average_cadence integer,
+    average_watts numeric,
+    device_watts character varying(10) COLLATE pg_catalog."default",
+    has_heartrate character varying(10) COLLATE pg_catalog."default",
+    average_heartrate numeric,
+    max_heartrate integer,
+    average_grade integer,
+	maximum_grade integer,
+    elevation_high numeric,
+    elevation_low numeric,
+    city character varying(50) COLLATE pg_catalog."default",
+	state character varying(50) COLLATE pg_catalog."default",
+	country character varying(50) COLLATE pg_catalog."default",
+	climb_category numeric
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.segment_efforts
+    OWNER to postgres;
