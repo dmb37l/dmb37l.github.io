@@ -4,7 +4,7 @@ name: py
 
 on:
   schedule:
-    - cron: "10 09 * * *"    #runs at 17:00 UTC everyday
+    - cron: "20 11 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
@@ -21,8 +21,6 @@ jobs:
             python -m pip install --upgrade pip
             pip install flake8 pytest
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          ref: # branch
-            my_other_branch
       - name: execute py script # run file
         run: |
           python ETL_pipeline.py
