@@ -4,7 +4,7 @@ name: py
 
 on:
   schedule:
-    - cron: "30 16 * * *"    #runs at 17:00 UTC everyday
+    - cron: "40 16 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
@@ -15,7 +15,6 @@ jobs:
         uses: actions/checkout@v2 # checkout the repository content to github runner.
       - name: setup python
         uses: actions/setup-python@v2
-      - name: install dependencies
         with: 
           python-version: 3.9
           run: |
@@ -24,4 +23,4 @@ jobs:
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: execute py script # run file
         run: |
-          python ETL_pipeline.py
+          ETL_pipeline.py
