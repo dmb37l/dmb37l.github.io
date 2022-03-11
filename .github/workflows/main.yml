@@ -4,7 +4,7 @@ name: py
 
 on:
   schedule:
-    - cron: "00 12 * * *"    #runs at 17:00 UTC everyday
+    - cron: "30 14 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
@@ -24,4 +24,8 @@ jobs:
         run: |
           pip install numpy
           pip install pandas
+          pip install requests
+          pip install json
+          pip install csv
+          pip install psycopg2
           python ETL_pipeline.py
