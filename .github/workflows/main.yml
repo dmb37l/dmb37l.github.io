@@ -4,7 +4,7 @@ name: py
 
 on:
   schedule:
-    - cron: "25 11 * * *"    #runs at 17:00 UTC everyday
+    - cron: "00 12 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
@@ -23,5 +23,5 @@ jobs:
       - name: execute py script # run file
         run: |
           pip install numpy
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pandas
           python ETL_pipeline.py
