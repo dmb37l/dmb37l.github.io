@@ -4,7 +4,7 @@ name: py
 
 on:
   schedule:
-    - cron: "15 17 * * *"    #runs at 17:00 UTC everyday
+    - cron: "25 08 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
           python-version: 3.9
           run: |
             python -m pip install --upgrade pip
-            pip install numpy
+            python pip install numpy
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: execute py script # run file
         run: |
