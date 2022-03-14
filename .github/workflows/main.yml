@@ -4,7 +4,7 @@ name: py
 
 on:
   schedule:
-    - cron: "05 20 * * *"    #runs at 17:00 UTC everyday
+    - cron: "30 21 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
@@ -14,9 +14,9 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner.
       - name: setup python
-        env: |
-          dbuser: '${{ secrets.DB_USER }}'
-          dbuser: '${{ secrets.DB_PASS }}'
+        with: |
+          dbuser: ${{ secrets.DBUSER }}
+          dbuser: ${{ secrets.DB_PASS }}
         uses: actions/setup-python@v2
         with: 
           python-version: 3.9
