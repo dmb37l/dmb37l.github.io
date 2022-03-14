@@ -41,14 +41,10 @@ def timestamp_to_unix(timestamp_string):
 def strava_token_exchange(credentials_file):
     
     strava_keys = "select client_id, client_secret, access_token, refresh_token from strava_api_credentials"
-    db_cred_file = '.secret/db_credentials.json'
-    with open(db_cred_file, 'r') as r:
-        db_credentials = json.load(r)
-        database = db_credentials['database']
-        user = db_credentials['user']
-        password = db_credentials['password']
-        r.close()
-    with psycopg2.connect(host="localhost", database=database, user=user, password=password) as conn:
+    database = os.environ['DB_USER'] #db_credentials['database']
+    user = os.environ['DB_USER'] #db_credentials['user']
+    password = os.environ['DB_PASS'] #db_credentials['password']
+    with psycopg2.connect(host="tyke.db.elephantsql.com", port="5432", database=database, user=user, password=password) as conn:
         cur = conn.cursor()
         cur.execute(strava_keys)
         api_credentials = cur.fetchone()  

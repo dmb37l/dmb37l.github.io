@@ -68,15 +68,15 @@ def ETL_pipeline(refresh_days=0): #, load='N'):
         segeffs = ETL_pipeline_functions.processed_segeffs(strava_access_token, activity_ids)
         
         # creating connection to postgresSQL database
-        db_cred_file = '.secret/db_credentials.json'
-        with open(db_cred_file, 'r') as r:
-            db_credentials = json.load(r)
-            database = db_credentials['database']
-            user = db_credentials['user']
-            password = db_credentials['password']
-            r.close()
-        with psycopg2.connect(host="localhost", database=database, user=user, password=password) as conn:
-        #with psycopg2.connect(host="tyke.db.elephantsql.com", port="5432", database=database, user=user, password=password) as conn:
+        #db_cred_file = '.secret/db_credentials.json'
+        #with open(db_cred_file, 'r') as r:
+            #db_credentials = json.load(r)
+        database = os.environ['DB_USER'] #db_credentials['database']
+        user = os.environ['DB_USER'] #db_credentials['user']
+        password = os.environ['DB_PASS'] #db_credentials['password']
+         #   r.close()
+        #with psycopg2.connect(host="localhost", database=database, user=user, password=password) as conn:
+        with psycopg2.connect(host="tyke.db.elephantsql.com", port="5432", database=database, user=user, password=password) as conn:
             # delete all activities back to the start date
             ETL_pipeline_functions.commit(conn, ETL_pipeline_functions.delete_to_start_date("activities", timestamp))
             # insert all records retrieved
