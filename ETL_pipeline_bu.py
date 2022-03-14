@@ -21,7 +21,7 @@ def ETL_pipeline(refresh_days=0): #, load='N'):
     #**********
     
     # storing credentials for Strava and Google Geocoding API's
-    strava_access_token = ETL_pipeline_functions.strava_token_exchange('')#('.secret/strava_api_credentials.json')
+    strava_access_token = ETL_pipeline_functions.strava_token_exchange('.secret/strava_api_credentials.json')
     #geocode_key = ETL_pipeline_functions.geocode_key_getter('.secret/geocode_api_credentials.json')
 
     # storing most recent date from request log file
@@ -75,8 +75,7 @@ def ETL_pipeline(refresh_days=0): #, load='N'):
             user = db_credentials['user']
             password = db_credentials['password']
             r.close()
-        with psycopg2.connect(host="localhost", database=database, user=user, password=password) as conn:
-        #with psycopg2.connect(host="tyke.db.elephantsql.com", port="5432", database=database, user=user, password=password) as conn:
+        with psycopg2.connect(host="tyke.db.elephantsql.com", port="5432", database=database, user=user, password=password) as conn:
             # delete all activities back to the start date
             ETL_pipeline_functions.commit(conn, ETL_pipeline_functions.delete_to_start_date("activities", timestamp))
             # insert all records retrieved

@@ -6,7 +6,6 @@ import requests, json, csv
 from datetime import datetime, timedelta
 import time
 import re
-import psycopg2
 
 # timestamp functions
 
@@ -39,32 +38,26 @@ def timestamp_to_unix(timestamp_string):
 # API credentials functions
 
 def strava_token_exchange(credentials_file):
-    
-    strava_keys = "select client_id, client_secret, access_token, refresh_token from strava_api_credentials"
-    db_cred_file = '.secret/db_credentials.json'
-    with open(db_cred_file, 'r') as r:
-        db_credentials = json.load(r)
-        database = db_credentials['database']
-        user = db_credentials['user']
-        password = db_credentials['password']
-        r.close()
-    with psycopg2.connect(host="localhost", database=database, user=user, password=password) as conn:
-        cur = conn.cursor()
-        cur.execute(strava_keys)
-        api_credentials = cur.fetchone()  
-        client_id = api_credentials[0]
-        client_secret = api_credentials[1]
-        refresh_token = api_credentials[3]
-        cur.close()
-        #req = requests.post("https://www.strava.com/oauth/token?client_id=58267&grant_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=activity:read").json()
-        req = requests.post("https://www.strava.com/oauth/token?client_id={}&client_secret={}&refresh_token={}&grant_type=refresh_token".format(client_id, client_secret, refresh_token)).json()
-        # api_credentials['access_token'] = req['access_token']
-        # api_credentials['refresh_token'] = req['refresh_token']
-        commit(conn, update_strava_key("strava_api_credentials", req['access_token'])) 
-        
-        #access_token = req['access_token']
 
-    return req['access_token']
+    with open(credentials_file, 'r') as r:
+        api_credentials = json.load(r)
+        client_id = api_credentials['client_id']
+        client_secret = api_credentials['client_secret']
+        refresh_token = api_credentials['refresh_token']
+        r.close()
+
+    #req = requests.post("https://www.strava.com/oauth/token?client_id=58267&grant_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=activity:read").json()
+    req = requests.post("https://www.strava.com/oauth/token?client_id={}&client_secret={}&refresh_token={}&grant_type=refresh_token".format(client_id, client_secret, refresh_token)).json()
+    api_credentials['access_token'] = req['access_token']
+    api_credentials['refresh_token'] = req['refresh_token']
+
+    with open(credentials_file, 'w') as w:
+        json.dump(api_credentials, w)
+        w.close()
+
+    access_token = api_credentials['access_token']
+
+    return access_token
 
 def geocode_key_getter(credentials_file):
 
@@ -507,10 +500,4 @@ def delete_to_start_date(table_name, start_time):
     #columns = ', '.join(list(record.keys()))
     #values = str(tuple(record.values()))
     statement = """DELETE FROM {} WHERE start_date_local >  to_timestamp('{}','YYYY-MM-DD HH24:MI:SS');""".format(table_name, start_time)
-    return statement
-
-def update_strava_key(table_name, access_token):
-    #columns = ', '.join(list(record.keys()))
-    #values = str(tuple(record.values()))
-    statement = """UPDATE {} set access_token = '{}';""".format(table_name, access_token)
     return statement
