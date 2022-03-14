@@ -4,20 +4,19 @@ name: py
 
 on:
   schedule:
-    - cron: "50 19 * * *"    #runs at 17:00 UTC everyday
+    - cron: "05 20 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: secrets
-        env: |
-          dbuser: '${{ secrets.DB_USER }}'
-          dbuser: '${{ secrets.DB_PASS }}'
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner.
       - name: setup python
+        env: |
+          dbuser: '${{ secrets.DB_USER }}'
+          dbuser: '${{ secrets.DB_PASS }}'
         uses: actions/setup-python@v2
         with: 
           python-version: 3.9
