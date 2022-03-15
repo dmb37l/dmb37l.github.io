@@ -2,7 +2,7 @@ name: strava
 
 on:
   schedule:
-    - cron: "10 14 * * *"    #runs at 17:00 UTC everyday
+    - cron: "17 14 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: env set up
-      env: |
-        greeting: Hello
-        db_pass ${{ secrets.DB_PASS}}
-      run: echo "$Greeting $db_pass"
+        env: |
+          greeting: Hello
+          db_pass ${{ secrets.DB_PASS}}
+          run: echo "$Greeting $db_pass"
