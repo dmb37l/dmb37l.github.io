@@ -1,0 +1,16 @@
+name: strava
+
+on:
+  schedule:
+    - cron: "15 10 * * *"    #runs at 17:00 UTC everyday
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: env set up
+      env: |
+      greeting: Hello
+      db_pass ${{ secrets.DB_PASS}}
+      run: echo "$Greeting $db_pass"
