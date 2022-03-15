@@ -6,6 +6,7 @@ import time
 import re
 import psycopg2
 import sys
+import os
 import ETL_pipeline_functions
 
 def ETL_pipeline(refresh_days=0): #, load='N'):
