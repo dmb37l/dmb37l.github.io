@@ -13,4 +13,4 @@ jobs:
         env: |
           greeting: Hello
           db_pass ${{ secrets.DB_PASS}}
-          run: echo "$Greeting $db_pass"
+        run: echo "$Greeting $db_pass"
