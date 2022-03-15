@@ -47,7 +47,7 @@ def strava_token_exchange(credentials_file):
     db_password = os.environ['DB_PASS'] #db_credentials['password']
     print('DB: ' ,db_database)
     print('Pass: ' ,db_password)
-    with psycopg2.connect(host="tyke.db.elephantsql.com", port="5432", database=db_database, user=db_user, password=db_password) as conn:
+    with psycopg2.connect(host="tyke.db.elephantsql.com", port="5432", database="ugdkavve", "user=ugdkavve", password=db_password) as conn:
         cur = conn.cursor()
         cur.execute(strava_keys)
         api_credentials = cur.fetchone()  
