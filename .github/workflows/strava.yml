@@ -2,7 +2,7 @@ name: strava
 
 on:
   schedule:
-    - cron: "55 10 * * *"    #runs at 17:00 UTC everyday
+    - cron: "55 11 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
