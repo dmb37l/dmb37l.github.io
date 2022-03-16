@@ -60,7 +60,6 @@ def strava_token_exchange(credentials_file):
         # api_credentials['access_token'] = req['access_token']
         # api_credentials['refresh_token'] = req['refresh_token']
         commit(conn, update_strava_key("strava_api_credentials", req['access_token'])) 
-        conn.close()
         #access_token = req['access_token']
 
     return req['access_token']
