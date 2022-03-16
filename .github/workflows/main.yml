@@ -4,7 +4,7 @@ name: py
 
 on:
   schedule:
-    - cron: "55 16 * * *"    #runs at 17:00 UTC everyday
+    - cron: "10 10 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
@@ -25,6 +25,8 @@ jobs:
           DB_USER: ${{ secrets.DBUSER }}
           DB_PASS: ${{ secrets.DB_PASS }}
         run: |
+          echo $DB_USER
+          echo $DB_PASS
           pip install numpy
           pip install pandas
           pip install requests
