@@ -89,7 +89,7 @@ def ETL_pipeline(refresh_days=0): #, load='N'):
             # insert all the segment efforts
             for segeff in segeffs:
                 ETL_pipeline_functions.commit(conn, ETL_pipeline_functions.insert_statement("segment_efforts", segeff))
-            
+            conn.close()
             
             #for zone in zones:
              #   ETL_pipeline_functions.commit(conn, ETL_pipeline_functions.insert_statement("activity_zones", zone))
