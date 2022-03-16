@@ -4,7 +4,7 @@ name: py
 
 on:
   schedule:
-    - cron: "10 10 * * *"    #runs at 17:00 UTC everyday
+    - cron: "22 12 * * *"    #runs at 17:00 UTC everyday
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: execute py script # run file
         env: 
-          DB_USER: ${{ secrets.DBUSER }}
+          DB_USER: ${{ secrets.DB_USER }}
           DB_PASS: ${{ secrets.DB_PASS }}
         run: |
           echo $DB_USER
