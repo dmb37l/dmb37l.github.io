@@ -105,6 +105,7 @@ def ETL_pipeline(refresh_days=0): #, load='N'):
         date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     else:
         date = end_timestamp
+    print('Date for file: ', date)
     # logging requests to a csv file
     with open('data/request_log.csv', 'a', newline = '') as a:
         csv_writer = csv.writer(a)
