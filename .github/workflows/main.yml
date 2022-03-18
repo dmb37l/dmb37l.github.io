@@ -4,8 +4,8 @@ name: py
 
 on:
   schedule:
-    #- cron: "0 */8 * * *"    #runs at 0, 8, 4 UTC everyday
-    - cron: "33 11 * * *"
+    - cron: "0 */8 * * *"    #runs at 0, 8, 4 UTC everyday
+    #- cron: "33 11 * * *"
 
 jobs:
   build:
