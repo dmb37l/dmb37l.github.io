@@ -17,7 +17,7 @@ def last_timestamp(activities_file):
     db_database = os.environ['DB_USER'] #db_credentials['database']
     db_user = os.environ['DB_USER'] #db_credentials['user']
     db_password = os.environ['DB_PASS'] #db_credentials['password']
-    with psycopg2.connect(host="localhost", database=db_database, user=db_user, password=db_password) as conn:
+    with psycopg2.connect(host="tyke.db.elephantsql.com", port = "5432", database=db_database, user=db_user, password=db_password) as conn:
         cur = conn.cursor()
         cur.execute(timestamp_query)
         timestamp = cur.fetchone()  
