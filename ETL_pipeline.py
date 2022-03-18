@@ -107,9 +107,13 @@ def ETL_pipeline(refresh_days=0): #, load='N'):
         date = end_timestamp
     print('Date for file: ', date)
     # logging requests to a csv file
-    with open('data/request_log.csv', 'a', newline = '') as a:
-        csv_writer = csv.writer(a)
-        csv_writer.writerow([date, n])
+    #with open('data/request_log.csv', 'a', newline = '') as a:
+    #    csv_writer = csv.writer(a)
+    #   csv_writer.writerow([date, n])
+    request_log = {}
+    request_log['timestamp'] = date
+    request_log['activities'] = n
+    ETL_pipeline_functions.commit(conn, ETL_pipeline_functions.insert_statement("request_log", request_log))
     
     return print("ETL pipeline complete")
 

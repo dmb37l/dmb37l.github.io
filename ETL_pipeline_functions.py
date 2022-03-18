@@ -13,13 +13,16 @@ import os
 
 def last_timestamp(activities_file):
 
-    with open(activities_file, 'r') as f:
-        lines = f.read().splitlines()
-        first_line = lines[0].split(',')
-        last_line = lines[-1].split(',')
-        last_line_dict = dict(list(zip(first_line, last_line)))
-        last_timestamp = last_line_dict['timestamp']
-        f.close()
+    timestamp_query = "select timestamp from request_log"
+    db_database = os.environ['DB_USER'] #db_credentials['database']
+    db_user = os.environ['DB_USER'] #db_credentials['user']
+    db_password = os.environ['DB_PASS'] #db_credentials['password']
+    with psycopg2.connect(host="localhost", database=db_database, user=db_user, password=db_password) as conn:
+        cur = conn.cursor()
+        cur.execute(timestamp_query)
+        timestamp = cur.fetchone()  
+        last_timestamp = timestamp[0]
+        cur.close()
 
     return last_timestamp
 
