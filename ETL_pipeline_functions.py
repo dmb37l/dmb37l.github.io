@@ -13,7 +13,7 @@ import os
 
 def last_timestamp(activities_file):
 
-    timestamp_query = "select timestamp from request_log"
+    timestamp_query = "select max(timestamp) from request_log"
     db_database = os.environ['DB_USER'] #db_credentials['database']
     db_user = os.environ['DB_USER'] #db_credentials['user']
     db_password = os.environ['DB_PASS'] #db_credentials['password']
