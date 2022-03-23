@@ -5,7 +5,7 @@ name: py
 on:
   schedule:
     - cron: "0 */8 * * *"    #runs at 0, 8, 4 UTC everyday
-    - cron: "40 16 * * *"
+    #- cron: "40 16 * * *"
 
 jobs:
   build:
@@ -32,4 +32,4 @@ jobs:
           pip install pandas
           pip install requests
           pip install psycopg2
-          python ETL_pipeline.py 3
+          python ETL_pipeline.py 1
