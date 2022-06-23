@@ -102,7 +102,7 @@ def ETL_pipeline(refresh_days=0): #, load='N'):
     
     # storing current date
     if load == 'N':
-        date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        date = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
     else:
         date = end_timestamp
     print('Date for file: ', date)
