@@ -4,7 +4,7 @@ name: py
 
 on:
   schedule:
-    - cron: "11 04/12 * * *"    #runs at 0, 8, 4 UTC everyday
+    - cron: "11 04 * * *"    #runs at 0, 8, 4 UTC everyday
     #- cron: "45 14 * * *"
 
 jobs:
